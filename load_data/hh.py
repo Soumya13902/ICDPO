@@ -1,8 +1,11 @@
 import sys
 sys.path.append("..")
 from utils.utils import load_raw_dataset, save_dataset, early_truncation
+Motive of this file: 
 
 def parse(line):
+    #parses a line to get prompt, pos repsonse, negative response and other info pair
+    #So the data is in the form of prompt, pos data, negative data
     p = line["prefix"][0]
     rs = line["suffix"]
 
@@ -21,7 +24,8 @@ def retrieval(
     test_path,
     retrieval_func,
     num_demonstrations,
-):
+): 
+    #fetches demonstrations for the icl 
     trainset = load_raw_dataset(train_path)
     testset = load_raw_dataset(test_path)
     parsed_testset = [parse(line) for line in testset]
