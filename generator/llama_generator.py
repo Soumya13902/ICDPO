@@ -6,6 +6,7 @@ import tqdm
 
 class Llama_Generator:
     def __init__(self, model_name_or_path):
+        #Initializes the model from the path (makes it ready)
         self.tokenizer = AutoTokenizer.from_pretrained(model_name_or_path)
         self.tokenizer.add_special_tokens(
             {
